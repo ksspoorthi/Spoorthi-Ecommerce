@@ -1,0 +1,41 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:webflow-config="http://www.springframework.org/schema/webflow-config"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/security  
+        http://www.springframework.org/schema/security/spring-security.xsd  ">
+
+	  <security:http auto-config="true" use-expressions="true">
+		<security:csrf disabled="true"/>
+		<security:intercept-url pattern="/" access="permitAll" />
+ 		<security:intercept-url pattern="/allproducts" access="permitAll" />
+		<security:intercept-url pattern="/adduser" access="permitAll" />
+		<security:intercept-url pattern="/addproduct" access="hasRole('ROLE_ADMIN')" />
+		   <security:intercept-url pattern="/addcategory" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addsupplier" access="hasRole('ROLE_ADMIN')" />
+
+		<security:form-login login-page="/loginpg"
+			authentication-failure-url="/loginpg?error" 
+			login-processing-url="/j_spring_security_check"
+			default-target-url="/" 
+			username-parameter="j_username"
+			password-parameter="j_password" />
+		<security:logout logout-success-url="/loginpg?logout"
+			logout-url="/j_spring_security_logout" />
+	</security:http>
+
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				authorities-by-username-query="SELECT username, role_name FROM authentication WHERE username =?"
+				users-by-username-query="SELECT user_emailid, user_password, 'true' as enabled from user where user_emailid=? limit 1"/>
+					
+		</security:authentication-provider>
+	</security:authentication-manager>
+</beans>
+    
