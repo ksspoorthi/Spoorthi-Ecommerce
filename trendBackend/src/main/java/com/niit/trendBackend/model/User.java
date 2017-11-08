@@ -20,7 +20,7 @@ public class User {
 	@Id
 	private String user_id;
 	private String user_name;
-	private String user_address;
+	
 	private String user_phno;
 	private String user_emailid;
 	//private String user_enable;
@@ -53,12 +53,8 @@ public class User {
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-	public String getUser_address() {
-		return user_address;
-	}
-	public void setUser_address(String user_address) {
-		this.user_address = user_address;
-	}
+	
+	
 	public String getUser_phno() {
 		return user_phno;
 	}

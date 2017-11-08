@@ -75,9 +75,10 @@ body {
     <li class="active"><a href="register"><span class="glyphicon glyphicon-registration-mark"></span>Register</a></li>
     <li class="active"><a href="loginpage"><span class="glyphicon glyphicon-log-in"></span> Log-in</a></li>
     </c:if>
+     <c:if test="${pageContext.request.userPrincipal.name!=null}">
     <li class="active"><a href="<c:url value="/ViewYourCart"/>"><span
 							class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-    		
+    	</c:if>	
     <li>  <c:if test="${pageContext.request.userPrincipal.name!=null}">
 			    <a href="<c:url value="/j_spring_security_logout"/>"><span class="icon-user"></span> Logout</a> 
      </c:if></li>

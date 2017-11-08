@@ -88,8 +88,9 @@ body {
 				<li class="active"><a href="loginpage"><span
 						class="glyphicon glyphicon-log-in"></span> Log-in</a></li>
 				</c:if>
+				 <c:if test="${pageContext.request.userPrincipal.name!=null}">
 				<li class="active"><a href="CartForm"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-
+</c:if>
 			</ul>
 		</div>
 	</nav>
@@ -110,7 +111,7 @@ body {
               
                <div class="col-sm-1"></div>
                <div class="col-sm-4">
-				<div class="form-group">
+				<div class="form-group collapse">
 					<label for="id">UserId:</label> <br>
 					<form:input type="text" class="form-control" name="userid"
 						placeholder="id" path="user_id" />
@@ -119,13 +120,13 @@ body {
 				<div class="form-group">
 					<label for="usr">Username:</label> <br>
 					<form:input type="text" class="form-control" name="username"
-						placeholder="username" path="user_name" />
+						placeholder="username" path="user_name" required="required"/>
 				</div>
 
 				<div class="form-group">
 					<label for="pwd">Password:</label> <br>
 					<form:input type="password" class="form-control" name="pwd"
-						placeholder="password" path="user_password" />
+						placeholder="password" path="user_password" required="required" />
 				</div>
 
 
@@ -134,14 +135,14 @@ body {
 				<div class="form-group">
 					<label for="pwd">Email-id:</label> <br>
 					<form:input type="email" class="form-control" name="email"
-						placeholder="email" path="user_emailid" />
+						placeholder="email" path="user_emailid" required="required"/>
 				</div>
 
-				<div class="form-group">
-					<label for="address">Address:</label> <br>
-					<form:input type="text" class="form-control" name="address"
-						placeholder="address" path="user_address" />
-				</div>
+<!-- 				<div class="form-group collapse"> -->
+<!-- 					<label for="address">Address:</label> <br> -->
+<%-- 					<form:input type="text" class="form-control" name="address" --%>
+<%-- 						placeholder="address" path="user_address" /> --%>
+<!-- 				</div> -->
 
 
 				<div class="form-group">

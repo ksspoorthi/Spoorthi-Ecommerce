@@ -95,8 +95,8 @@ input[type=text]:focus {
 						<li class="active"><a href="<c:url value="/loginpage"/>"><span
 								class="glyphicon glyphicon-log-in"></span> Log-in</a></li>
 					</c:if>
-					<li><c:if
-							test="${pageContext.request.userPrincipal.name!=null}">
+					<li><c:if test="${pageContext.request.userPrincipal.name!=null}">
+							
 							<li class="active"><a href="<c:url value="/ViewYourCart"/>"><span
 									class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 						</c:if>
@@ -159,39 +159,95 @@ input[type=text]:focus {
 			</div>
 		</div> <br> <br>
 
-<div class="container">    
-  <div class="row">
+<!-- <div class="container">     -->
+<!--   <div class="row"> -->
   
-  <c:forEach items="${categories}" var="c">
-  <div class="btn-group">
+<%--   <c:forEach items="${categories}" var="c"> --%>
+<!--   <div class="btn-group"> -->
   
-  <center><a href="<c:url value='/getproductbycategory/${c.getCat_id()}'/>" class="btn btn-danger btn-xs" role="button"><b>${c.getCat_name()}</b></a></center>
-  </div>
+<%--   <center><a href="<c:url value='/getproductbycategory/${c.getCat_id()}'/>" class="btn btn-danger btn-xs" role="button"><b>${c.getCat_name()}</b></a></center> --%>
+<!--   </div> -->
   
-  </c:forEach>
- </div> 
- </div>
+<%--   </c:forEach> --%>
+<!--  </div>  -->
+<!--  </div> -->
+ 
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Search By Category</a>
+		</div>
+		<ul class="nav navbar-nav ">
+			<c:forEach var="catz" items="${categories}">
+			<li class="active"><a href="<c:url value="/getproductbycategory/${catz.getCat_id()}"/>">${catz.getCat_name()}</a></li>
+			
+			
+			
+			</c:forEach>
+		</ul>
+	</div>
+</nav>
+<br>
+<br>
+
+<div class="container">
+
+<c:forEach var="prods" items="${pro}">
+<div class="col-sm-3 col-lg-3 col-md-3">
+                        <div class="thumbnail">
+                            <img src="${img}/${prods.getProd_id()}.jpg" />
+                            <div class="caption">
+                                <h4 class="pull-right">${prods.getProd_price()}</h4>
+                                <h4>${prods.getProd_name()}</a>
+                                </h4>
+                                <h6>${prods.getProd_desc()}</h6>
+                            <center>
+                            <button type="input" class="btn btn-default ">
+						<a href="<c:url value="/addtocart/${prods.getProd_id()}"/> ">
+						Add To Cart
+						</a>
+						</button>					
+<!-- 						<button type="input" class="btn btn-default">			 -->
+<%-- 							<a href="<c:url value="/Buy/${prods.getProd_id()}"/>">Buy Now</a> --%>
+<!-- 						</button>		 -->
+						</center>
+						
+                            
+                           
+                            
+                            </div>
+                            
+                        </div>
+                    </div>
+                    </c:forEach>
+</div>
+<br>
+<br>
+<br>
+<br>
 
 
 
-<div class="container">    
-  <div class="row">
-  <c:forEach items="${pro}" var="p">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
+
+
+<!-- <div class="container">     -->
+<!--   <div class="row"> -->
+<%--   <c:forEach items="${pro}" var="p"> --%>
+<!--     <div class="col-sm-4"> -->
+<!--       <div class="panel panel-primary"> -->
         
-        <div class="panel-body"><img
-										src="<c:url value='/resources/images/${p.getProd_id()}.jpg'/>"
-										,width=120px, height=120px></div>
-	<center><a href="<c:url value='/addtocart/${p.getProd_id()}'/>" class="btn btn-danger btn-xs" role="button"><b>Add to cart</b></a></center>
-        <div class="panel-footer">${p.getProd_name()}</div>
-      </div>
-    </div>
-    </c:forEach>
-  </div>
-</div><br>
+<!--         <div class="panel-body"><img -->
+<%-- 										src="<c:url value='/resources/images/${p.getProd_id()}.jpg'/>" --%>
+<!-- 										,width=120px, height=120px></div> -->
+<%-- 	<center><a href="<c:url value='/addtocart/${p.getProd_id()}'/>" class="btn btn-danger btn-xs" role="button"><b>Add to cart</b></a></center> --%>
+<%--         <div class="panel-footer">${p.getProd_name()}</div> --%>
+<!--       </div> -->
+<!--     </div> -->
+<%--     </c:forEach> --%>
+<!--   </div> -->
+<!-- </div><br> -->
 
-<a href="<c:url value='/Thanku'/>"> thanku</a>
+
 
 
 

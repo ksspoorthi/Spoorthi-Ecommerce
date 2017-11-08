@@ -68,8 +68,8 @@
     <li class="active"><a href="contactus"><span class="glyphicon glyphicon-earphone"></span>Contact us</a></li>
     <li class="active"><a href="register"><span class="glyphicon glyphicon-registration-mark"></span>Register</a></li>
     <li class="active"><a href="loginpage"><span class="glyphicon glyphicon-log-in"></span> Log-in</a></li>
-    <li class="active"><a href="CartForm"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-    
+     <c:if test="${pageContext.request.userPrincipal.name!=null}"><li class="active"><a href="CartForm"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+    </c:if>
 </ul>
 </div>
 </nav>
@@ -94,13 +94,13 @@
       <label><strong> Username:</strong></label>
 <br>
 
- <input type="text" class="form-control"  placeholder="username" name="j_username"/>
+ <input type="text" class="form-control"  placeholder="username" name="j_username" required="required"/>
     </div>
 <br>
     <div class="form-group">
       <label>Password:</label>
 <br>
-      <input type="password" class="form-control"  placeholder="password" name="j_password"/>
+      <input type="password" class="form-control"  placeholder="password" name="j_password" required="required"/>
     </div>
     
     <input type="submit" class="btn btn-default" value="login"/>

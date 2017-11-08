@@ -118,7 +118,7 @@ body {
       <tr>
         
         <th>Product name</th>
-        <th>Quantity</th>
+        
         <th>Price</th>
         <th>Description</th>
         <th>Image</th>
@@ -130,7 +130,7 @@ body {
       <c:forEach items="${cartItems}" var="d">
   			<tr>
   				<td>${d.getProduct().getProd_name()}</td>
-  				<td>${d.getProduct().getProd_qty()}</td>
+  				
   				<td>${d.getProduct().getProd_price()}</td>
   				<td>${d.getProduct().getProd_desc()}</td>
   			<td><img src="<c:url value='resources/images/${d.getProduct().getProd_id()}.jpg'/>",width=50px, height=50px></td>

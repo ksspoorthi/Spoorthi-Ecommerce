@@ -31,7 +31,7 @@ public class Usertest {
 		user.setUser_password("12348888");
 		//user.setUser_enable("yes");
 		user.setUser_role("admin");
-		user.setUser_address("rajnr,blore");
+		
 		
 		if (userDao.saveupdate(user) == true)
 			System.out.println("saved");
@@ -49,7 +49,7 @@ public class Usertest {
 		System.out.println(u.getUser_password());
 		//System.out.println(u.getUser_enable());
 		System.out.println(u.getUser_role());
-		System.out.println(u.getUser_address());
+		
 		System.out.println(u.getUser_phno());
 
 //		List<User> li = userDao.list();

@@ -350,12 +350,13 @@ mailSender.send(email);
 
 
 @RequestMapping(value="/ConfirmationMail")
-public String SendMsg(Model model) {
+public String SendMsg(Model model,@ModelAttribute("card")Card c) {
 	System.out.println(21312);
 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 if (!(authentication instanceof AnonymousAuthenticationToken)) {
 	String currusername = authentication.getName();
-	user = userDao.getUseremail(currusername);      
+	user = userDao.getUseremail(currusername);  
+	cardDao.saveupdate(c);
 //	Otpganarater ot=new Otpganarater();
 //	String o=ot.Otpga();
 //	o=ot.Otpga();

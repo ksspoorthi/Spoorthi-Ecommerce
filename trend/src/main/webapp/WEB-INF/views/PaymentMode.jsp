@@ -35,6 +35,7 @@ app.controller('myCtrl', function($scope,$http) {
 body {
 	background-image: url("${img}/2017-07-23 (3).png")
 }
+.b2 {background-color: #008CBA;font-size: 24px;} 
 </style>
 <body>
 	<div class="container">
@@ -92,56 +93,60 @@ body {
 	<br>
 
 <div class="container">
+<div class="col-sm-4">
+</div>
+<div class="col-sm-4">
+
 		<div id="collapseTwo" aria-expanded="false" class="collapse">
 		
 		
           <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
           <c:url value="/ConfirmationMail" var="payment"/>
-          <form action="${payment}" id="payment-form" method="post" commandName="card"><div style="margin:0;padding:0;display:inline">  
+          <form:form action="${payment}" id="payment-form" method="post" commandName="card"><div style="margin:0;padding:0;display:inline">  
           </div>
 
           
             <div class='form-row'>
               <div class='col-xs-12 form-group required'>
                 <label class='control-label'>Name on Card</label>
-                <input class='form-control' size='4' type='text' path="card_name"/>
+                <form:input class='form-control' size='4' type='text' path="card_name" required="required"/>
               </div>
             </div>
             <div class='form-row'>
               <div class='col-xs-12 form-group card required'>
                 <label class='control-label'>Card Number</label>
-                <input autocomplete='off' class='form-control card-number' size='20' type='text' path="card_id"/>
+                <form:input autocomplete='off' class='form-control card-number' size='20' type='text' path="card_id" required="required"/>
               </div>
             </div>
             <div class='form-row'>
               <div class='col-xs-4 form-group cvc required'>
                 <label class='control-label'>CVC</label>
-                <input autocomplete='off' class='form-control card-cvc'  placeholder='ex. 311' size='4' type='text' path="card_no"/>
+                <form:input autocomplete='off' class='form-control card-cvc'  placeholder='ex. 311' size='4' type='text' path="card_no" required="required"/>
               </div>
               <div class='col-xs-4 form-group expiration required'>
                 <label class='control-label'>Expiration</label>
-                <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' path="card_expiry_month"/>
+                <form:input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' path="card_expiry_month" required="required"/>
               </div>
               <div class='col-xs-4 form-group expiration required'>
                 <label class='control-label'></label>
-                <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text' path="card_expiry_year"/>
+                <form:input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text' path="card_expiry_year" required="required"/>
               </div>
             </div>
             <div class='form-row'>
               <div class='col-md-12'>
-                <div class='form-control total btn btn-info'>
-                  Total:
-                  <span class='amount'>${cart.getGrand_total()}</span>
-                </div>
+<!--                 <div class='form-control total btn btn-info'> -->
+<!--                   Total: -->
+<%--                   <span class='amount'>${cart.getGrand_total()}</span> --%>
+<!--                 </div> -->
               </div>
             </div>
             <div class='form-row'>
               <div class='col-md-12 form-group'>
-              <div class='form-control total btn btn-info'>
+<!--               <div class='form-control total btn btn-info'> -->
 <%--                <a href="<c:url value="/ConfirmationMail"/>" class="btn paymentMethod" data-target="#collapseTwo" --%>
 <!-- 								data-toggle="collapse" aria-expanded="false" -->
 <!-- 								aria-controls="collapseOne"> <span class='amount'>Pay</span> -->
-               <input type="submit" value="Pay">
+              <center> <input type="submit" value="Pay" class="b2"></center>
               </div>
             </div>
             </div>
@@ -152,10 +157,11 @@ body {
                 </div>
               </div>
             </div>
-          </form>
+          </form:form>
         </div>
         <
         <div class='col-md-4'></div>
+    </div>
     </div>
 </div>
 	
@@ -170,7 +176,7 @@ body {
 		</div>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a
-			href="<c:url value="/Thankyou"/>" class="btn btn-primary btn-primary"
+			href="<c:url value="/Thanku"/>" class="btn btn-primary btn-primary"
 			role="button">CHECKOUT</a>
 
 		<div class="col-sm-3"></div>
